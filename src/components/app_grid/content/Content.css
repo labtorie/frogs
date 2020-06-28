@@ -1,0 +1,9 @@
+.content {
+    background-color: #ffffff;
+    border-radius: 10px;
+    grid-area: cont;
+}
+.content article {
+    margin: 20px 40px 20px 40px;
+    text-align: justify;
+}

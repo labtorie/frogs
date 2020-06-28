@@ -1,0 +1,28 @@
+.menu {
+    background-color: rgba(0, 0, 0, 0.31);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    grid-area: men;
+}
+
+
+.logo {
+    width: 200px;
+    height: 200px;
+}
+
+.item {
+    color: white;
+    text-align: center;
+    background-color: rgba(255,255,255,0.11);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    transition-duration: .3s;
+    font-family: Calibri, serif;
+}
+
+.item:hover {
+    opacity: .3;
+    transition-duration: .1s;
+}
