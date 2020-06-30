@@ -1,0 +1,12 @@
+.header {
+    grid-area: hat;
+    background-color: #8db574;
+    border-radius: 10px;
+
+}
+.logo {
+    height: 8vh;
+    margin-top: 1vh;
+    margin-left: 20px;
+}
+

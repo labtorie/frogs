@@ -2,14 +2,15 @@ import React from 'react'
 import Header from "./header/Header";
 import "./AppGrid.css"
 import Menu from "./menu/Menu";
-import Content from "./content/Content";
+import ContentWrapper from "./content/ContentWrapper";
 
-const AppGrid = () => {
+
+const AppGrid = (props) => {
     return (
         <div className='app-grid'>
             <Header/>
             <Menu/>
-            <Content/>
+            <ContentWrapper profile={props.profile} dialogs={props.dialogs} messages={props.messages}/>
         </div>
     )
 }

@@ -1,9 +1,10 @@
 import React from "react";
-import "./Header.css"
+import styles from "./Header.module.css"
 
 const Header = () => {
     return (
-        <div className='header'>
+        <div className={styles.header}>
+            <img className={styles.logo} src={require("../header/logo.png")} alt='logo'/>
         </div>
     )
 }

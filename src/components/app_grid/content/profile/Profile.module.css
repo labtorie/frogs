@@ -1,0 +1,76 @@
+.profileGrid {
+    margin: 20px;
+    display: grid;
+    grid-template-rows: 150px 1fr;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 20px;
+    background-image: url("pond.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    grid-template-areas:
+            "pp pi "
+            "mn . ";
+}
+
+.profilePic {
+    grid-area: pp;
+    transition-duration: .3s;
+}
+.profilePic:hover {
+    transform: scale(1.1);
+    transition-duration: .2s;
+}
+
+.profileInfo {
+    grid-area: pi;
+}
+
+.menu {
+    grid-area: mn;
+}
+
+.profilePic img {
+    border-radius: 75px;
+    width: 150px;
+    height: 150px;
+}
+
+.Name {
+    font-family: Calibri, sans-serif;
+    font-size: 24pt;
+    color: black;
+}
+.Name span{
+    font-family: Calibri, sans-serif;
+    font-size: 20pt;
+    color: #4b4b4b;
+}
+
+.Bio {
+    font-family: Calibri, sans-serif;
+    font-size: 18pt;
+}
+
+.Button{
+    background-color: #dddddd;
+    border-radius: 10px;
+    transition-duration: .3s;
+    text-align: center;
+    font-family: "Arial", serif;
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    margin: 5px 5px 10px 5px;
+}
+.Button:hover {
+    transform: translateX(4px);
+    transition-duration: .2s;
+}
+
+.croakWrapper{
+    background-color: #baff94;
+    border-radius: 10px;
+    padding-top: 10px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.31));
+}
+

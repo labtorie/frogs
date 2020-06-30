@@ -1,9 +1,9 @@
-.content {
+.contentWrapper {
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 20px;
     grid-area: cont;
 }
-.content article {
+.contentWrapper article {
     margin: 40px;
     text-align: justify;
 }

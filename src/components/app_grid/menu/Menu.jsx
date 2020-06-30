@@ -1,21 +1,20 @@
 import React from 'react'
-import './Menu.css'
+import styles from './Menu.module.css'
+import {NavLink} from "react-router-dom";
 
-const Item = () => {
+const Item = (props) => {
     return (
-        <div className='item'>
-            <p>MENU ITEM</p>
-        </div>
+        <NavLink className={styles.itemText} to={props.linkTo} activeClassName={styles.activeTab}>
+            <div className={styles.item}>{props.name}</div>
+        </NavLink>
     )
 }
 const Menu = () => {
     return (
-        <div className='menu'>
-            <img className='logo' src={require("./logo.png")}/>
-            <div>
-                <Item/>
-                <Item/>
-                <Item/>
+        <div className={styles.menu}>
+            <div className={styles.menuWrapper}>
+                <Item name="🐸 Профиль" linkTo="/profile"/>
+                <Item name="💬 Диалоги" linkTo="/messages"/>
             </div>
         </div>
     )

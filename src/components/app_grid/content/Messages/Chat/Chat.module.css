@@ -1,0 +1,144 @@
+.chatWrapper {
+    grid-area: cw;
+    display: grid;
+    grid-template-rows: 8vh 1fr 12vh;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "h"
+        "b"
+        "mi";
+    height: 80vh;
+    background-color: #eeeeee;
+    border-radius: 10px;
+}
+
+.Header {
+    border-radius: 10px 10px 0 0;
+    background-color: #8db574;
+    grid-area: h;
+    padding: 1vh;
+}
+
+.Body {
+    grid-area: b;
+    overflow-y: scroll;
+}
+
+.Input {
+    border-radius: 10px;
+    grid-area: mi;
+    display: grid;
+    padding: 1vh;
+    grid-template-columns: 8fr 1fr;
+    grid-template-areas: "if sb";
+    background-color: #b9ed98;
+}
+
+.Input textarea {
+    grid-area: if;
+    height: 10vh;
+    resize: none;
+    width: 100%;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    font-family: "Arial", sans-serif;
+    text-decoration: none;
+    font-size: 1em;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.Input button {
+    border-radius: 0 5px 5px 0;
+    border: none;
+    height: 10vh;
+    background-color: #dddddd;
+    transition-duration: .5s;
+    font-size: 20pt;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.Input button:active {
+    background-color: #8db574;
+    transition-duration: .0s;
+
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 6vh 1fr;
+    grid-template-areas: "pp nm";
+
+    font-family: "Arial", sans-serif;
+    text-decoration: none;
+    font-size: 1em;
+
+    line-height: 6vh;
+    vertical-align: middle;
+    color: black;
+}
+
+.pPicture {
+    grid-area: pp;
+}
+
+.pPicture img {
+    height: 6vh;
+    width: 6vh;
+    border-radius: 3vh;
+}
+
+.Name {
+    font-family: "Arial", sans-serif;
+    text-decoration: none;
+    font-size: 1em;
+    color: white;
+
+    grid-area: nm;
+    padding-left: 1vh;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.messageSpace {
+    width: 100%;
+    height: fit-content;
+    overflow: auto;
+    margin-top: 2vh;
+}
+
+.bubble {
+    padding: 1rem;
+    width: fit-content;
+    max-width: 300px;
+
+    font-family: "Arial", sans-serif;
+}
+
+.sent {
+    float: right;
+    margin-right: 1rem;
+
+    border-color: #8db574;
+    border-width: 2px;
+    background-color: #fff;
+    border-radius: 20px 20px 0 20px;
+    border-style: solid;
+}
+
+.received {
+    float: left;
+    margin-left: 1rem;
+
+    border-color: #9ee178;
+    border-width: 2px;
+    background-color: #fff;
+    border-radius: 0 20px 20px 20px;
+    border-style: solid;
+}
