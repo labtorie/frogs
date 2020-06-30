@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/frogs/static/css/main.ee8d3415.chunk.css",
+    "main.js": "/frogs/static/js/main.090e0cb4.chunk.js",
+    "main.js.map": "/frogs/static/js/main.090e0cb4.chunk.js.map",
+    "runtime-main.js": "/frogs/static/js/runtime-main.36dc2fd3.js",
+    "runtime-main.js.map": "/frogs/static/js/runtime-main.36dc2fd3.js.map",
+    "static/js/2.1dabe5db.chunk.js": "/frogs/static/js/2.1dabe5db.chunk.js",
+    "static/js/2.1dabe5db.chunk.js.map": "/frogs/static/js/2.1dabe5db.chunk.js.map",
+    "index.html": "/frogs/index.html",
+    "precache-manifest.6ca85781a8b0ed9f8687407be4470b0a.js": "/frogs/precache-manifest.6ca85781a8b0ed9f8687407be4470b0a.js",
+    "service-worker.js": "/frogs/service-worker.js",
+    "static/css/main.ee8d3415.chunk.css.map": "/frogs/static/css/main.ee8d3415.chunk.css.map",
+    "static/js/2.1dabe5db.chunk.js.LICENSE.txt": "/frogs/static/js/2.1dabe5db.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/frogs/static/media/bkg.2524462d.png",
+    "static/media/logo.png": "/frogs/static/media/logo.64ca5c54.png",
+    "static/media/lol.jpg": "/frogs/static/media/lol.690950e2.jpg",
+    "static/media/Profile.module.css": "/frogs/static/media/pond.e887d8a8.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.36dc2fd3.js",
+    "static/js/2.1dabe5db.chunk.js",
+    "static/css/main.ee8d3415.chunk.css",
+    "static/js/main.090e0cb4.chunk.js"
+  ]
+}
