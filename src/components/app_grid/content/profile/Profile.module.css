@@ -33,6 +33,8 @@
     border-radius: 75px;
     width: 150px;
     height: 150px;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
 }
 
 .Name {

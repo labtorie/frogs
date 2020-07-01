@@ -44,7 +44,7 @@
     font-family: "Arial", sans-serif;
     text-decoration: none;
     font-size: 1em;
-
+    padding: 10px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -91,6 +91,8 @@
     height: 6vh;
     width: 6vh;
     border-radius: 3vh;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
 }
 
 .Name {
@@ -117,8 +119,8 @@
     padding: 1rem;
     width: fit-content;
     max-width: 300px;
-
     font-family: "Arial", sans-serif;
+    word-break: break-word;
 }
 
 .sent {

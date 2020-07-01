@@ -15,6 +15,7 @@ const Menu = () => {
             <div className={styles.menuWrapper}>
                 <Item name="🐸 Профиль" linkTo="/profile"/>
                 <Item name="💬 Диалоги" linkTo="/messages"/>
+                <Item name="🤓 Инфо" linkTo="/info"/>
             </div>
         </div>
     )

@@ -46,6 +46,8 @@
 
 .profilePicture img {
     height: 50px;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
     width: 50px;
     border-radius: 25px;
 }

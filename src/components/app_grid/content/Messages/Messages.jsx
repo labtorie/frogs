@@ -13,7 +13,7 @@ const Messages = (props) => {
                 (
                     <div><Chat currentChat={props.state.dialogs}
                                messages={props.state.messages}
-                               funcs={props.funcs.chatPage}
+                               dispatch={props.dispatch}
                     /></div>
                 )
             }/>

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Chat.module.css";
 import {useParams} from "react-router-dom";
+import {sendMessageActionCreator, updateNewMessageTextCreator} from "../../../../../store";
 
 const ChatHeader = (props) => {
     return (<div className={styles.wrapper}>
@@ -22,18 +23,19 @@ const MessageBubble = (props) => {
 
 const Chat = (props) => {
     let {slug} = useParams();
-    let msgTextArea = React.createRef()
 
+    let newMessageText = props.currentChat[slug].newMessageText;
     let messagesItems = props.messages[slug].map(
         msg => <MessageBubble messageText={msg.messageText} id={msg.id} mine={msg.mine}/>
     )
 
-
     let sendMsg = () => {
-        let text = msgTextArea.current.value;
-        let chatID = slug;
-        props.funcs.sendMessage(text, chatID);
-        msgTextArea.current.value='';
+        props.dispatch(sendMessageActionCreator(slug));
+    }
+
+    let onTextInputChange = (event) => {
+        let text = event.target.value;
+        props.dispatch(updateNewMessageTextCreator(text, slug));
     }
 
     return (
@@ -41,8 +43,8 @@ const Chat = (props) => {
             <div className={styles.Header}><ChatHeader currentChat={props.currentChat[slug]}/></div>
             <div className={styles.Body}>{messagesItems}</div>
             <div className={styles.Input}>
-                <textarea ref={msgTextArea}/>
-                <button onClick={ sendMsg }>⇒</button>
+                <textarea placeholder='Новое сообщение' onChange={ onTextInputChange } value={newMessageText}/>
+                <button onClick={sendMsg}>⇒</button>
             </div>
         </div>
     )

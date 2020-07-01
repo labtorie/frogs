@@ -1,0 +1,15 @@
+.infoWrapper {
+    padding: 20px;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: 800px;
+}
+
+h3 {
+    font-family: "Arial", sans-serif;
+    font-size: 1.3rem;
+}
+span {
+    font-family: "Arial", sans-serif;
+    font-size: 1rem;
+}

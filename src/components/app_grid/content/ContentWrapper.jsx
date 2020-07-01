@@ -3,6 +3,7 @@ import styles from './Content.module.css'
 import {Route} from "react-router-dom";
 import Profile from "./profile/Profile";
 import Messages from "./Messages/Messages";
+import Info from "./info/Info";
 
 const ContentWrapper = (props) => {
     return (
@@ -11,7 +12,8 @@ const ContentWrapper = (props) => {
                 state={props.state.profilePage.userInfo}/>}/>
             <Route path='/messages' render={() => <Messages
                 state={props.state.messagesPage}
-                funcs={props.funcs.messagesPage}/>}/>
+                dispatch={props.dispatch}/>}/>
+            <Route path='/info' render={() => <Info/>}/>
 
         </div>
     )
