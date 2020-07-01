@@ -10,7 +10,7 @@ const AppGrid = (props) => {
         <div className='app-grid'>
             <Header/>
             <Menu/>
-            <ContentWrapper profile={props.profile} dialogs={props.dialogs} messages={props.messages}/>
+            <ContentWrapper state={props.state} funcs={props.funcs}/>
         </div>
     )
 }

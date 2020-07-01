@@ -7,11 +7,14 @@ import {Route, useParams} from "react-router-dom"
 const Messages = (props) => {
     return (
         <div className={styles.messagesGrid}>
-            <div><Dialogs dialogs={props.dialogs}/></div>
+            <div><Dialogs dialogs={props.state.dialogs}/></div>
 
             <Route path="/messages/:slug" render={() =>
                 (
-                    <div><Chat currentChat={props.dialogs} messages={props.messages}/></div>
+                    <div><Chat currentChat={props.state.dialogs}
+                               messages={props.state.messages}
+                               funcs={props.funcs.chatPage}
+                    /></div>
                 )
             }/>
         </div>

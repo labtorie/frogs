@@ -5,6 +5,7 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <img className={styles.logo} src={require("../header/logo.png")} alt='logo'/>
+            <span className={styles.news}>Messages are fake-sendable now!</span>
         </div>
     )
 }

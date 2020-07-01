@@ -1,7 +1,7 @@
 .dialogsWrapper {
     grid-area: dw;
     overflow-y: scroll;
-    height: 70vh;
+    height: 80vh;
 }
 
 .activeChat .dialogItem  {

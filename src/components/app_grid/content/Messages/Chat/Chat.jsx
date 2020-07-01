@@ -20,23 +20,29 @@ const MessageBubble = (props) => {
 }
 
 
-
-
-
-
-
 const Chat = (props) => {
     let {slug} = useParams();
+    let msgTextArea = React.createRef()
 
     let messagesItems = props.messages[slug].map(
         msg => <MessageBubble messageText={msg.messageText} id={msg.id} mine={msg.mine}/>
     )
+
+
+    let sendMsg = () => {
+        let text = msgTextArea.current.value;
+        let chatID = slug;
+        props.funcs.sendMessage(text, chatID);
+        msgTextArea.current.value='';
+    }
+
     return (
         <div className={styles.chatWrapper}>
             <div className={styles.Header}><ChatHeader currentChat={props.currentChat[slug]}/></div>
             <div className={styles.Body}>{messagesItems}</div>
-            <div className={styles.Input}><textarea/>
-                <button>⇒</button>
+            <div className={styles.Input}>
+                <textarea ref={msgTextArea}/>
+                <button onClick={ sendMsg }>⇒</button>
             </div>
         </div>
     )

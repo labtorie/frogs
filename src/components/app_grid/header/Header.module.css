@@ -10,3 +10,12 @@
     margin-left: 20px;
 }
 
+.news {
+    font-family: "Arial", sans-serif;
+    font-size: 1em;
+    color: white;
+    text-align: center;
+    float: right;
+    margin-top: 4vh;
+    margin-right: 4vh;
+}

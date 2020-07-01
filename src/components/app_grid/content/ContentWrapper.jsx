@@ -8,9 +8,10 @@ const ContentWrapper = (props) => {
     return (
         <div className={styles.contentWrapper}>
             <Route path='/profile' render={() => <Profile
-                profile={props.profile}/>}/>
+                state={props.state.profilePage.userInfo}/>}/>
             <Route path='/messages' render={() => <Messages
-                dialogs={props.dialogs} messages={props.messages}/>}/>
+                state={props.state.messagesPage}
+                funcs={props.funcs.messagesPage}/>}/>
 
         </div>
     )

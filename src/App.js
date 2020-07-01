@@ -6,7 +6,7 @@ const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
-                <AppGrid profile={props.profile} dialogs={props.dialogs} messages={props.messages}/>
+                <AppGrid state={props.state} funcs={props.funcs}/>
             </div>
         </BrowserRouter>
     )
