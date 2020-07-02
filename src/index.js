@@ -3,9 +3,9 @@ import * as serviceWorker from './serviceWorker';
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
-import {store} from "./store";
+import store from "./redux/store"
 
-let rerenderUI = (state) => {
+let renderUI = (state) => { // Renders the app
     ReactDOM.render(
         <React.StrictMode>
             <App state={state} dispatch={store.dispatch.bind(store)}/>
@@ -13,8 +13,13 @@ let rerenderUI = (state) => {
         document.getElementById('root')
     );
 }
-rerenderUI(store.getState());
 
-store.subscribe(rerenderUI);
+renderUI(store.getState()); // Initial call
 
-serviceWorker.unregister();
+store.subscribe(() => { // We send this callback to listen state changes
+        let state = store.getState()
+        renderUI(state)
+    }
+);
+
+serviceWorker.unregister(); // TODO ????

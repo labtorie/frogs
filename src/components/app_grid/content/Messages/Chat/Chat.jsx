@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Chat.module.css";
 import {useParams} from "react-router-dom";
-import {sendMessageActionCreator, updateNewMessageTextCreator} from "../../../../../store";
+import {sendMessageActionCreator, updateNewMessageTextCreator} from "../../../../../redux/messagesPageReducer";
 
 const ChatHeader = (props) => {
     return (<div className={styles.wrapper}>
         <div className={styles.pPicture}><img src={props.currentChat.img} alt='Profile'/></div>
-        <div className={styles.Name}><b> {props.currentChat.name}</b></div>
+        <div className={styles.Name}><b>{props.currentChat.name}</b></div>
     </div>)
 }
 
