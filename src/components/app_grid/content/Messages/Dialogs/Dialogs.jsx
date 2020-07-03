@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 
-
+// chats[],
 const DialogItem = (props) => {
     return (
         <NavLink className={styles.Link} to={`/messages/${props.id}`} activeClassName={styles.activeChat}>
@@ -19,8 +19,8 @@ const DialogItem = (props) => {
 }
 
 const Dialogs = (props) => {
-    let dialogElements = props.dialogs.map(
-        dialog => <DialogItem name={dialog.name} img={dialog.img} id={dialog.id}/>
+    let dialogElements = props.chats.map(
+        chat => <DialogItem name={chat.name} img={chat.profilePictureURL} id={chat.id}/>
     )
     return (<div className={styles.dialogsWrapper}>
             {dialogElements}

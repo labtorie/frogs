@@ -5,9 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 const App = (props) => {
     return (
         <BrowserRouter>
-            <div className='app-wrapper'>
-                <AppGrid state={props.state} dispatch={props.dispatch}/>
-            </div>
+                <AppGrid />
         </BrowserRouter>
     )
 }
