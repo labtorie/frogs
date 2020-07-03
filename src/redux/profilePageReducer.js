@@ -1,13 +1,12 @@
 
 
 const initialState = {
-    userInfo: {
+    user: {
         id: 22842069,
-        profilePictureURL: "",
-        name: "Лол",
-        surname: "Лягушонок",
-        croaks: 36,
-        bio: "К сожалению умер.....("
+        profilePictureURL: "https://bstars.ru/media/djcatalog2/images/item/17/playboi-carti.1_f.jpg",
+        name: "Playboi Carti",
+        croaks: 1337,
+        bio: "die lit "
     }
 }
 

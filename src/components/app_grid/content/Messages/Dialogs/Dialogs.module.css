@@ -5,10 +5,10 @@
 }
 
 .activeChat .dialogItem  {
-    background-color: #eeeeee;
+    background-color: #dddddd;
 }
 .activeChat .dialogItem:hover  {
-    background-color: #eeeeee;
+    background-color: #dddddd;
 }
 
 .Link {
@@ -16,7 +16,7 @@
 }
 
 .dialogItem {
-    background-color: #dddddd;
+    background-color: #eeeeee;
     border-radius: 30px;
     margin: 10px;
     padding: 5px;

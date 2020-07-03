@@ -10,7 +10,7 @@ const AppGrid = (props) => {
         <div className='app-grid'>
             <Header/>
             <Menu/>
-            <ContentWrapper state={props.state} dispatch={props.dispatch}/>
+            <ContentWrapper/>
         </div>
     )
 }
