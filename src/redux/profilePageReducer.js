@@ -1,16 +1,36 @@
-
+const SET_USER = 'SET-USER'
+const TOGGLE_FETCHING = 'TOGGLE-FETCHING'
 
 const initialState = {
-    user: {
-        id: 22842069,
-        profilePictureURL: "https://bstars.ru/media/djcatalog2/images/item/17/playboi-carti.1_f.jpg",
-        name: "Playboi Carti",
-        croaks: 1337,
-        bio: "die lit "
-    }
+    user: {},
+    isFetching: false
 }
 
 export const profilePageReducer = (state = initialState, action) => {
-    //TODO
-    return state;
+    switch (action.type) {
+        case SET_USER: {
+            return {
+                user: {
+                    id: action.user.userId,
+                    profilePictureURL: action.user.photos.large,
+                    name: action.user.fullName,
+                    bio: action.user.aboutMe,
+                }
+                ,
+                isFetching: state.isFetching
+            }
+        }
+        case TOGGLE_FETCHING: {
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
+        }
+        default:
+            return state
+    }
+
 }
+
+export const setUserAC = (user) => ({type: SET_USER, user})
+export const toggleFetchingAC = (isFetching)=>({type: TOGGLE_FETCHING, isFetching})

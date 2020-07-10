@@ -1,0 +1,238 @@
+.currentPage {
+    font-weight: bold;
+}
+
+.page {
+    padding: 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-family: "Arial", sans-serif;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+    display: inline-block;
+
+}
+.header{
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.pageButtons {
+    margin: 1rem auto;
+    max-width: 70vw;
+    height: 2rem;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-top: 0.5rem;
+
+}
+.pageButtons span {
+    font-family: "Arial", sans-serif;
+    font-size: 1.2rem;
+}
+
+.navlink {
+    text-decoration: none;
+}
+
+
+.searchArea{
+    margin: 15px auto;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    background-color: #dddddd;
+    border-radius: 1.5rem;
+    padding: 0 .5rem;
+
+}
+
+.searchArea input {
+    height: 1.2rem;
+    background-color: #dddddd;
+    font-family: "Arial", sans-serif;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-block;
+    border: none;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.searchArea input:focus{
+    outline: none;
+}
+
+.searchArea button {
+    border-radius: 1.5rem;
+    border: none;
+    display: inline-block;
+    margin: 10px 0;
+    height: 3rem;
+    width: 3rem;
+    background-color: #dddddd;
+    transition-duration: .5s;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.searchArea button:focus {
+    outline: none;
+
+}
+.searchArea button:hover {
+    background-color: #cccccc;
+}
+
+.searchArea button:active {
+    background-color: #bbbbbb;
+    transition-duration: 0s;
+}
+
+@media (min-width: 0) {
+    .usersGrid{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 10px;
+        transition-duration: .3s;
+    }
+}
+@media (min-width: 800px) {
+    .usersGrid{
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        transition-duration: .3s;
+    }
+}
+
+
+.fetchingUser {
+    transition-duration: .2s;
+    border-radius: 60px;
+    margin: 10px;
+    background-color:  #eeeeee;
+    padding: 10px;
+    min-width: 40px;
+    transform: scale(.95);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        background-color: #eeeeee;
+    }
+    30% {
+        background-color: #eeeeee;
+    }
+
+    75% {
+        background-color: #dddddd;
+
+    }
+
+    100% {
+        background-color:  #eeeeee;
+
+    }
+}
+
+
+.fetchingUser .userWrapper {
+    opacity: 0;
+    transition-duration: .2s;
+}
+
+.readyUser {
+    transition-duration: .3s;
+    background-color: #eeeeee;
+    border-radius: 60px;
+    margin: 10px;
+    padding: 10px;
+    min-width: 40px;
+}
+
+.userWrapper {
+
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 100px;
+    grid-template-areas: "pp inf";
+    font-family: "Arial", sans-serif;
+    text-decoration: none;
+    line-height: 100px;
+    vertical-align: middle;
+    color: black;
+    transition-duration: .3s;
+}
+
+.userWrapper:hover {
+    transform: translateX(4px);
+    transition-duration: .2s;
+}
+
+.pPicture {
+    grid-area: pp;
+}
+
+.pPicture img {
+    height: 100px;
+    object-fit: cover; /* Do not scale the image */
+    object-position: center; /* Center the image within the element */
+    width: 100px;
+    border-radius: 50px;
+}
+
+
+.info {
+    grid-area: inf;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.name {
+    font-family: "Arial", sans-serif;
+    font-weight: bold;
+}
+
+.status {
+    font-family: "Arial", sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #555555;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 6px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

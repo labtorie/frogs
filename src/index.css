@@ -3,3 +3,6 @@ body{
     background-attachment: fixed;
     background-image: url("bkg.png");
 }
+html {
+    scroll-behavior: smooth;
+}

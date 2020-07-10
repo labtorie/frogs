@@ -3,6 +3,7 @@
     grid-area: men;
 }
 
+
 .menuWrapper {
     background-color: rgba(0, 0, 0, 0.31);
     backdrop-filter: blur(10px);
@@ -12,7 +13,7 @@
 
 
 .item {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition-duration: .3s;
     text-align: left;
@@ -23,11 +24,12 @@
     text-overflow: ellipsis;
 }
 
-.activeTab .item  {
-    background-color: rgba(255,255,255,0.34);
+.activeTab .item {
+    background-color: rgba(255, 255, 255, 0.34);
 }
-.activeTab .item:hover  {
-    background-color: rgba(255,255,255,0.2);
+
+.activeTab .item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .itemText {
@@ -38,6 +40,6 @@
 }
 
 .item:hover {
-    background-color: rgba(255,255,255,0.05);
+    background-color: rgba(255, 255, 255, 0.05);
     transition-duration: .2s;
 }

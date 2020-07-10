@@ -1,40 +1,96 @@
-.profileGrid {
-    margin: 20px;
-    display: grid;
-    grid-template-rows: 150px 1fr;
-    grid-template-columns: 150px 1fr;
-    grid-gap: 20px;
-    background-image: url("pond.png");
-    background-position: bottom right;
-    background-repeat: no-repeat;
-    grid-template-areas:
+@media (min-width: 0) {
+    .profileGrid {
+        padding: 20px;
+        display: grid;
+        grid-template-rows: 200px 1fr 1fr;
+        grid-template-columns: 1fr;
+        transition-duration: .3s;
+        grid-gap: 10px;
+        background-image: url("pond.png");
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        grid-template-areas:
+            "pp""pi"
+            "mn";
+    }
+}
+
+@media (min-width: 500px) {
+    .profileGrid {
+        padding: 20px;
+        transition-duration: .3s;
+        display: grid;
+        grid-template-rows: 150px 1fr;
+        grid-template-columns: 150px 1fr;
+        grid-gap: 20px;
+        background-image: url("pond.png");
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        grid-template-areas:
             "pp pi "
             "mn . ";
+    }
+}
+
+.fetching {
+    opacity: 0;
+    transition-duration: 0s;
+    transform: scale(0.95);
 }
 
 .profilePic {
+    margin: 0 auto;
     grid-area: pp;
     transition-duration: .3s;
 }
-.profilePic:hover {
-    transform: scale(1.1);
-    transition-duration: .2s;
-}
+
 
 .profileInfo {
     grid-area: pi;
+}
+
+@media (max-width: 500px) {
+    .profileInfo {
+        margin: 0 auto;
+    }
 }
 
 .menu {
     grid-area: mn;
 }
 
-.profilePic img {
-    border-radius: 75px;
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* Do not scale the image */
-    object-position: center; /* Center the image within the element */
+@media (min-width: 0) {
+    .profilePic img {
+        border-radius: 100px;
+        transition-duration: .2s;
+        width: 200px;
+        height: 200px;
+        object-fit: cover; /* Do not scale the image */
+        object-position: center; /* Center the image within the element */
+    }
+
+    .profilePic img:hover {
+        border-radius: 15px;
+        transform: scale(1.2);
+        transition-duration: .2s;
+    }
+}
+
+@media (min-width: 500px) {
+    .profilePic img {
+        border-radius: 75px;
+        transition-duration: .2s;
+        width: 150px;
+        height: 150px;
+        object-fit: cover; /* Do not scale the image */
+        object-position: center; /* Center the image within the element */
+    }
+
+    .profilePic img:hover {
+        border-radius: 15px;
+        transform: scale(1.2);
+        transition-duration: .2s;
+    }
 }
 
 .Name {
@@ -42,7 +98,8 @@
     font-size: 24pt;
     color: black;
 }
-.Name span{
+
+.Name span {
     font-family: Calibri, sans-serif;
     font-size: 20pt;
     color: #4b4b4b;
@@ -53,7 +110,7 @@
     font-size: 18pt;
 }
 
-.Button{
+.Button {
     background-color: #dddddd;
     border-radius: 10px;
     transition-duration: .3s;
@@ -64,15 +121,16 @@
     padding: 10px;
     margin: 5px 5px 10px 5px;
 }
+
 .Button:hover {
     transform: translateX(4px);
     transition-duration: .2s;
 }
 
-.croakWrapper{
+.croakWrapper {
     background-color: #baff94;
     border-radius: 10px;
     padding-top: 10px;
-    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.31));
+    filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.31));
 }
 

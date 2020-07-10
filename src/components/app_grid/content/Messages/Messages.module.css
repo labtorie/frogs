@@ -1,12 +1,24 @@
-.messagesGrid {
-    padding: 10px;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-        "dw cw";
-    min-width: 640px;
+@media (min-width: 0){
+    .messagesGrid {
+        padding: 10px;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+        "dw dw";
+    }
 }
 
 
+@media (min-width: 640px){
+    .messagesGrid {
+        padding: 10px;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas:
+        "dw cw";
+        min-width: 640px;
+    }
+}
