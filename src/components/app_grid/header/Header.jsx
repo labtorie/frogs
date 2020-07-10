@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./Header.module.css"
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div className={styles.header}>
-            <img className={styles.logo} src={require("../header/logo.png")} alt='logo'/>
-            <span className={styles.news}>Messages are fake-sendable now!</span>
+            <div className={styles.logInControls}>
+                {props.isLoggedIn ? <span><span className={styles.email}> {props.email}</span><span>{props.login}</span></span> : ''}<button onClick={props.logInOut}>{props.isLoggedIn ? '👋' : '🔐'}</button>
+            </div>
         </div>
     )
 }

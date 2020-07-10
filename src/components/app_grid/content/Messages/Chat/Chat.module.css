@@ -1,21 +1,42 @@
-.chatWrapper {
-    grid-area: cw;
-    display: grid;
-    grid-template-rows: 8vh 1fr 12vh;
-    grid-template-columns: 1fr;
-    grid-template-areas:
+@media(min-width: 0){
+    .chatWrapper {
+        z-index: 3;
+        grid-area: dw;
+        display: grid;
+        grid-template-rows: 8vh 1fr 12vh;
+        grid-template-columns: 1fr;
+        grid-template-areas:
         "h"
         "b"
         "mi";
-    height: 80vh;
-    background-color: #eeeeee;
-    border-radius: 10px;
+        height: 80vh;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+}
+@media(min-width: 640px){
+    .chatWrapper {
+        grid-area: cw;
+        display: grid;
+        grid-template-rows: 8vh 1fr 12vh;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "h"
+        "b"
+        "mi";
+        height: 80vh;
+        background-color: #fff;
+        border-radius: 10px;
+    }
 }
 
 .Header {
     border-radius: 10px 10px 0 0;
-    background-color: #8db574;
+    background-color: #fff;
+    border-color: #e70000;
+    border-width: 2px;
     grid-area: h;
+
     padding: 1vh;
 }
 
@@ -31,7 +52,7 @@
     padding: 1vh;
     grid-template-columns: 8fr 1fr;
     grid-template-areas: "if sb";
-    background-color: #b9ed98;
+    background-color: #dddddd;
 }
 
 .Input textarea {
@@ -57,14 +78,14 @@
     background-color: #dddddd;
     transition-duration: .5s;
     font-size: 20pt;
-
+    grid-area: sb;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .Input button:active {
-    background-color: #8db574;
+    background-color: #b1b1b1;
     transition-duration: .0s;
 
 }
@@ -99,8 +120,7 @@
     font-family: "Arial", sans-serif;
     text-decoration: none;
     font-size: 1em;
-    color: white;
-
+    color: black;
     grid-area: nm;
     padding-left: 1vh;
     overflow: hidden;
@@ -126,10 +146,10 @@
 .sent {
     float: right;
     margin-right: 1rem;
-
+    background-color: #8db574;
     border-color: #8db574;
     border-width: 2px;
-    background-color: #fff;
+    color: white;
     border-radius: 20px 20px 0 20px;
     border-style: solid;
 }

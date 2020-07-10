@@ -1,14 +1,14 @@
 import React from 'react'
-import Header from "./header/Header";
 import "./AppGrid.css"
 import Menu from "./menu/Menu";
 import ContentWrapper from "./content/ContentWrapper";
+import HeaderContainer from "./header/HeaderContainer";
 
 
 const AppGrid = (props) => {
     return (
         <div className='app-grid'>
-            <Header/>
+            <HeaderContainer/>
             <Menu/>
             <ContentWrapper/>
         </div>

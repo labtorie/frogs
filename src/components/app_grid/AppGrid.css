@@ -1,12 +1,40 @@
-.app-grid {
-    width: 90%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-rows: 10vh 1fr;
-    grid-template-columns: 15vw 1fr;
-    grid-gap: 10px;
+@media (min-width: 0) {
+    .app-grid {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: fit-content(1fr) 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+            "men hat"
+            "cont cont";
+    }
+}
 
-    grid-template-areas:
+@media (min-width: 600px) {
+    .app-grid {
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: 10vh 1fr;
+        grid-template-columns: 15vw 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
             "hat hat"
             "men cont";
+    }
+}
+@media (min-width: 800px) {
+    .app-grid {
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-rows: 10vh 1fr;
+        grid-template-columns: 15vw 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+            "hat hat"
+            "men cont";
+    }
 }

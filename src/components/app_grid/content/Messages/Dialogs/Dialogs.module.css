@@ -36,7 +36,6 @@
 
 .dialogItem:hover {
     transform: translateX(4px);
-
     transition-duration: .2s;
 }
 

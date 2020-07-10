@@ -4,18 +4,48 @@
     border-radius: 10px;
 
 }
-.logo {
-    height: 8vh;
-    margin-top: 1vh;
-    margin-left: 20px;
+
+
+.logInControls {
+
+    margin: 2vh;
+    background-color: #678456;
+    border-radius: 1vh;
+    float: right;
 }
 
-.news {
-    font-family: "Arial", sans-serif;
-    font-size: 1em;
+.logInControls span {
+    font-size: 1rem;
     color: white;
-    text-align: center;
-    float: right;
-    margin-top: 4vh;
-    margin-right: 4vh;
+    font-family: "Arial", sans-serif;
+    padding: 1vh;
+    margin: 1vh;
+}
+.logInControls button {
+
+    margin: 1vh;
+    height: 4vh;
+
+    border-radius: 1.5rem;
+    border: none;
+    background-color: #dddddd;
+    transition-duration: .5s;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.logInControls button:focus {
+    outline: none;
+}
+.logInControls button:active {
+    opacity: .5;
+    transition-duration: 0s;
+
+}
+
+@media (max-width: 600px) {
+    .email {
+        display: none;
+    }
 }

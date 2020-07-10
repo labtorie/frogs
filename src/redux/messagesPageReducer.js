@@ -2,7 +2,7 @@ const SEND_MESSAGE = 'SEND-MESSAGE'
 const UPDATE_MESSAGE_INPUT = 'UPDATE-NEW-MESSAGE-INPUT'
 
 const initialState = {
-       chats: [
+    chats: [
         {
             id: 0,
             name: "Playboi Carti",
@@ -49,33 +49,43 @@ export const messagesPageReducer = (state = initialState, action) => {
     switch (action.type) {
         case SEND_MESSAGE: {
             if (state.chats[action.chatID].currentInput === "") return state // Empty messages ain't sent
-            let id = state.chats[action.chatID].messages.length !== 0 ? state.chats[action.chatID].messages.slice(-1)[0].id + 1 : 0;
+            return {
+                ...state,
+                chats: state.chats.map(
+                    (chat) => {
+                        if (chat.id == action.chatID) {
+                            return {
+                                ...chat, messages: [...state.chats[action.chatID].messages,
+                                    {
+                                        messageText: state.chats[action.chatID].currentInput,
+                                        mine: true,
+                                        id: state.chats[action.chatID].messages.length !== 0 ? state.chats[action.chatID].messages.slice(-1)[0].id + 1 : 0
+                                    }
+                                ],
+                                currentInput: ""
+                            }
 
-            let stateCopy = {...state}
-            stateCopy.chats = [...state.chats]
-            stateCopy.chats[action.chatID] = {...state.chats[action.chatID]}
-            stateCopy.chats[action.chatID].messages = [...state.chats[action.chatID].messages]
+                        } else return chat;
+                    }
+                )
 
-            stateCopy.chats[action.chatID].messages.push(
-                {
-                    messageText: state.chats[action.chatID].currentInput,
-                    mine: true,
-                    id: id
-                }
-            )
-
-            stateCopy.chats[action.chatID].currentInput = ""
-            return stateCopy
+            }
         }
         case UPDATE_MESSAGE_INPUT: {
-            let newMessageText = action.text
-
-            let stateCopy = {...state}
-            stateCopy.chats = [...state.chats]
-            stateCopy.chats[action.chatID] = {...state.chats[action.chatID]}
-            stateCopy.chats[action.chatID].currentInput = newMessageText;
-            //debugger;
-            return stateCopy
+            return {
+                ...state,
+                chats: state.chats.map(
+                    (chat) => {
+                        if (chat.id == action.chatID){
+                            return {
+                                ...chat,
+                                currentInput: action.text
+                            }
+                        }
+                        else return chat
+                    }
+                )
+            }
         }
         default:
             return state

@@ -21,7 +21,7 @@ const Chat = (props) => {
             <div className={styles.Body}>{messagesItems}</div>
             <div className={styles.Input}>
                 <textarea placeholder='Новое сообщение' onChange={ onTextInputChange } value={props.currentChat.currentInput}/>
-                <button onClick={onSendMessage}>⇒</button>
+                <button onClick={onSendMessage}>✔</button>
             </div>
         </div>
     )
