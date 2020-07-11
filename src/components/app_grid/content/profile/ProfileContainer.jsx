@@ -3,12 +3,12 @@ import React from "react";
 import Profile from "./Profile";
 import {setUserAC, toggleFetchingAC} from "../../../../redux/profilePageReducer";
 import {withRouter} from "react-router-dom";
-import {fetchProfile} from "../../../../API/API";
+import {profileAPI} from "../../../../API/API";
 
 class ProfileDAL extends React.Component {
     componentDidMount() {
         this.props.toggleFetching(true)
-        fetchProfile(this.props.match.params.id, this.props.myId).then(
+        profileAPI.fetchProfile(this.props.match.params.id, this.props.myId).then(
             (response) => {
                 this.props.setUser(response)
                 this.props.toggleFetching(false)

@@ -2,18 +2,18 @@ import {connect} from "react-redux";
 import Users from "./Users";
 import React from "react";
 import {searchUsers, selectPage, setUsers, toggleFetching, updateSearchText} from "../../../../redux/usersPageReducer";
-import {fetchUsers} from "../../../../API/API";
+import {usersAPI} from "../../../../API/API";
 
 class UsersContainerAPI extends React.Component {
 
     componentDidMount() {
         this.props.toggleFetching(true)
-            fetchUsers(this.props.currentPage, this.props.pageSize, this.props.searchInput).then(
-                (response) => {
-                    this.props.toggleFetching(false)
-                    this.props.setUsers(response.items, response.totalCount, this.props.currentPage)
-                }
-            )
+        usersAPI.fetchUsers(this.props.currentPage, this.props.pageSize, this.props.searchInput).then(
+            (response) => {
+                this.props.toggleFetching(false)
+                this.props.setUsers(response.items, response.totalCount, this.props.currentPage)
+            }
+        )
     }
 
     onPageChanged = (page) => {
@@ -22,8 +22,8 @@ class UsersContainerAPI extends React.Component {
         this.props.selectPage(page)
         this.props.toggleFetching(true)
 
-        fetchUsers(page, this.props.pageSize, this.props.searchInput)
-        .then(
+        usersAPI.fetchUsers(page, this.props.pageSize, this.props.searchInput)
+            .then(
                 (response) => {
                     this.props.toggleFetching(false)
                     this.props.setUsers(response.items, response.totalCount, page)
@@ -40,7 +40,7 @@ class UsersContainerAPI extends React.Component {
         this.props.toggleFetching(true)
         this.props.searchUsers()
 
-        fetchUsers(1, this.props.pageSize, this.props.searchInput).then(
+        usersAPI.fetchUsers(1, this.props.pageSize, this.props.searchInput).then(
             (response) => {
                 this.props.toggleFetching(false)
                 if (response.items.length === 0) alert("Ничего не найдено") //TODO normal message
@@ -73,7 +73,6 @@ const mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching
     }
 }
-
 
 
 const UsersContainer = connect(mapStateToProps,

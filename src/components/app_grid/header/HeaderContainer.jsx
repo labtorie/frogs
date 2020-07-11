@@ -2,12 +2,12 @@ import {connect} from "react-redux";
 import React from "react";
 import Header from "./Header";
 import {setAuthStatus} from "../../../redux/authReducer";
-import {fetchAuth} from "../../../API/API";
+import {authAPI} from "../../../API/API";
 
 class HeaderDAL extends React.Component {
 
     componentDidMount() {
-        fetchAuth()
+        authAPI.fetchAuth()
            .then(
                 (response) => {
                     this.props.setAuthStatus({
