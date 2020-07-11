@@ -1,19 +1,17 @@
 import {connect} from "react-redux";
 import Users from "./Users";
 import React from "react";
-import axios from "axios"
 import {searchUsers, selectPage, setUsers, toggleFetching, updateSearchText} from "../../../../redux/usersPageReducer";
+import {fetchUsers} from "../../../../API/API";
 
 class UsersContainerAPI extends React.Component {
 
     componentDidMount() {
         this.props.toggleFetching(true)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}${this.props.searchInput !== "" ? `&term=${this.props.searchInput}` : ""}`)
-            .then(
+            fetchUsers(this.props.currentPage, this.props.pageSize, this.props.searchInput).then(
                 (response) => {
                     this.props.toggleFetching(false)
-                    this.props.setUsers(response.data.items, response.data.totalCount, this.props.currentPage)
+                    this.props.setUsers(response.items, response.totalCount, this.props.currentPage)
                 }
             )
     }
@@ -23,12 +21,12 @@ class UsersContainerAPI extends React.Component {
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         this.props.selectPage(page)
         this.props.toggleFetching(true)
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}${this.props.searchInput !== "" ? `&term=${this.props.searchInput}` : ""}`)
-            .then(
+
+        fetchUsers(page, this.props.pageSize, this.props.searchInput)
+        .then(
                 (response) => {
                     this.props.toggleFetching(false)
-                    this.props.setUsers(response.data.items, response.data.totalCount, page)
+                    this.props.setUsers(response.items, response.totalCount, page)
 
                 }
             )
@@ -41,11 +39,12 @@ class UsersContainerAPI extends React.Component {
     onSearchUsers = () => {
         this.props.toggleFetching(true)
         this.props.searchUsers()
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=1&count=${this.props.pageSize}${this.props.searchInput !== "" ? `&term=${this.props.searchInput}` : ""}`).then(
+
+        fetchUsers(1, this.props.pageSize, this.props.searchInput).then(
             (response) => {
                 this.props.toggleFetching(false)
-                if (response.data.items.length === 0) alert("Ничего не найдено") //TODO normal message
-                this.props.setUsers(response.data.items, response.data.totalCount, 1)
+                if (response.items.length === 0) alert("Ничего не найдено") //TODO normal message
+                this.props.setUsers(response.items, response.totalCount, 1)
             }
         )
     }

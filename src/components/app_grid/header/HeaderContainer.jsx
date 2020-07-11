@@ -2,22 +2,19 @@ import {connect} from "react-redux";
 import React from "react";
 import Header from "./Header";
 import {setAuthStatus} from "../../../redux/authReducer";
-import axios from "axios";
+import {fetchAuth} from "../../../API/API";
 
 class HeaderDAL extends React.Component {
 
     componentDidMount() {
-        axios
-            .get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {
-                withCredentials: true
-            })
-            .then(
+        fetchAuth()
+           .then(
                 (response) => {
                     this.props.setAuthStatus({
-                        id: response.data.data.id,
-                        login: response.data.data.login,
-                        email: response.data.data.email,
-                        isLoggedIn: response.data.resultCode === 0,
+                        id: response.data.id,
+                        login: response.data.login,
+                        email: response.data.email,
+                        isLoggedIn: response.resultCode === 0,
                     })
                 }
             )
