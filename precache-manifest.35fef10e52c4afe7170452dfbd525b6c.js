@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ee00255ad17c9b34657769d9dd33c35e",
+    "revision": "69a930db4ffbf8de9e972b0462a658c1",
     "url": "/frogs/index.html"
   },
   {
-    "revision": "282ce1ce6cfd740fdcf9",
-    "url": "/frogs/static/css/main.7cc697be.chunk.css"
+    "revision": "e66f570dce44d15508c9",
+    "url": "/frogs/static/css/main.de4c4ae1.chunk.css"
   },
   {
-    "revision": "ff55ed4c47447fb25df3",
-    "url": "/frogs/static/js/2.50fc0672.chunk.js"
+    "revision": "8ea042eb032d92781178",
+    "url": "/frogs/static/js/2.d5dceaf9.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/frogs/static/js/2.50fc0672.chunk.js.LICENSE.txt"
+    "url": "/frogs/static/js/2.d5dceaf9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "282ce1ce6cfd740fdcf9",
-    "url": "/frogs/static/js/main.2964083c.chunk.js"
+    "revision": "e66f570dce44d15508c9",
+    "url": "/frogs/static/js/main.1ea7adf9.chunk.js"
   },
   {
     "revision": "59d74674d68d1197462d",
