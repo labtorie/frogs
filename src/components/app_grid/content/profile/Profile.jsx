@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Profile.module.css'
 import defaultPicture from "../../../../assets/images/user.png"
 
+
 const Profile = (props) => {
     return (
         <div className={`${styles.profileGrid} ${props.isFetching? styles.fetching : null}`}>

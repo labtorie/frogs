@@ -1,3 +1,5 @@
+import {profileAPI} from "../API/API";
+
 const SET_USER = 'SET-USER'
 const TOGGLE_FETCHING = 'TOGGLE-FETCHING'
 
@@ -32,5 +34,15 @@ export const profilePageReducer = (state = initialState, action) => {
 
 }
 
-export const setUserAC = (user) => ({type: SET_USER, user})
-export const toggleFetchingAC = (isFetching)=>({type: TOGGLE_FETCHING, isFetching})
+export const setUser = (user) => ({type: SET_USER, user})
+export const toggleFetching = (isFetching)=>({type: TOGGLE_FETCHING, isFetching})
+
+export const fetchProfile = (userID, myID)=>(dispatch)=>{
+    dispatch(toggleFetching(true))
+    profileAPI.fetchProfile(userID, myID).then(
+        (response) => {
+            dispatch(setUser(response))
+            dispatch(toggleFetching(false))
+        }
+    )
+}

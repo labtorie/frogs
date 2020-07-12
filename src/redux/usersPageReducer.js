@@ -1,3 +1,5 @@
+import {usersAPI} from "../API/API";
+
 const SET_USERS = 'SET-USERS'
 const SELECT_PAGE = 'SELECT-PAGE'
 const SEARCH_USERS = 'SEARCH-USERS'
@@ -64,3 +66,19 @@ export const selectPage = (page) => ({type: SELECT_PAGE, page})
 export const updateSearchText = (text) => ({type: UPDATE_SEARCH_TEXT, text})
 export const searchUsers = () => ({type: SEARCH_USERS})
 export const toggleFetching = (isFetching)=>({type: TOGGLE_FETCHING, isFetching})
+
+export const fetchUsers = (page, pageSize, searchInput) => (dispatch) => {
+    dispatch(selectPage(page))
+    dispatch(toggleFetching(true))
+    dispatch(searchUsers())
+
+    usersAPI.fetchUsers(page, pageSize, searchInput)
+        .then(
+            (response) => {
+                dispatch(toggleFetching(false))
+                dispatch(setUsers(response.items, response.totalCount, page))
+                if (response.items.length === 0) alert("Ничего не найдено") //TODO normal message
+
+            }
+        )
+}

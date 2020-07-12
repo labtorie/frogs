@@ -1,35 +1,23 @@
 import {connect} from "react-redux";
 import Users from "./Users";
 import React from "react";
-import {searchUsers, selectPage, setUsers, toggleFetching, updateSearchText} from "../../../../redux/usersPageReducer";
-import {usersAPI} from "../../../../API/API";
+import {
+    fetchUsers,
+    updateSearchText
+} from "../../../../redux/usersPageReducer";
+
+
 
 class UsersContainerAPI extends React.Component {
 
     componentDidMount() {
-        this.props.toggleFetching(true)
-        usersAPI.fetchUsers(this.props.currentPage, this.props.pageSize, this.props.searchInput).then(
-            (response) => {
-                this.props.toggleFetching(false)
-                this.props.setUsers(response.items, response.totalCount, this.props.currentPage)
-            }
-        )
+        this.props.fetchUsers(this.props.currentPage, this.props.pageSize, this.props.searchInput)
     }
 
     onPageChanged = (page) => {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-        this.props.selectPage(page)
-        this.props.toggleFetching(true)
-
-        usersAPI.fetchUsers(page, this.props.pageSize, this.props.searchInput)
-            .then(
-                (response) => {
-                    this.props.toggleFetching(false)
-                    this.props.setUsers(response.items, response.totalCount, page)
-
-                }
-            )
+        this.props.fetchUsers(page, this.props.pageSize, this.props.searchInput)
     }
 
     onSearchInputUpdate = (event) => {
@@ -37,20 +25,10 @@ class UsersContainerAPI extends React.Component {
     }
 
     onSearchUsers = () => {
-        this.props.toggleFetching(true)
-        this.props.searchUsers()
-
-        usersAPI.fetchUsers(1, this.props.pageSize, this.props.searchInput).then(
-            (response) => {
-                this.props.toggleFetching(false)
-                if (response.items.length === 0) alert("Ничего не найдено") //TODO normal message
-                this.props.setUsers(response.items, response.totalCount, 1)
-            }
-        )
-    }
+        this.props.fetchUsers(1, this.props.pageSize, this.props.searchInput)}
 
     render() {
-        return <Users usersCount={this.props.usersCount}
+        return <Users usersCount={this.props.usersCount} //todo pack em
                       pageSize={this.props.pageSize}
                       currentPage={this.props.currentPage}
                       users={this.props.users}
@@ -77,11 +55,8 @@ const mapStateToProps = (state) => {
 
 const UsersContainer = connect(mapStateToProps,
     {
-        selectPage,
-        setUsers,
         updateSearchText,
-        searchUsers,
-        toggleFetching
+        fetchUsers
     }
 )(UsersContainerAPI)
 
