@@ -1,138 +1,73 @@
-.header {
-    grid-area: hat;
-    background-color: #8db574;
-    border-radius: 20px;
-}
-
-.logInControls {
-    width: fit-content;
-    background-color: #678456;
-    border-radius: 15px;
-    float: right;
-}
-
-.logInControls input {
-    height: 2rem;
-    color: white;
-    background-color: #678456;
-    font-family: "Arial", sans-serif;
-    text-decoration: none;
-    font-size: 1rem;
-    border: none;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.logInControls input:focus {
-    outline: none;
-}
-
-.logInControls input::placeholder {
-    color: #dddddd;
-}
-
-.logInControls span {
-    font-size: 1rem;
-    color: white;
-    font-family: "Arial", sans-serif;
-    padding: 1vh;
-    margin: 1vh;
-}
-
-.logInControls button {
-    grid-area: b;
-    margin: 1vh;
-    height: 4vh;
-    border-radius: 1.5rem;
-    border: none;
-    background-color: #dddddd;
-    transition-duration: .5s;
-    font-size: 1rem;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-
-.logInControls button:focus {
-    outline: none;
-}
-
-
-.logInControls button:active {
-    opacity: .5;
-    transition-duration: 0s;
-
-}
-
 @media (max-width: 600px) {
-    .email {
-        display: none;
-    }
-
-    .login {
-        display: none;
-    }
-
-    .logInControls {
+    .header {
+        grid-area: hat;
+        background-color: #8db574;
+        border-radius: 20px;
         display: grid;
-        width: 90%;
-        height: 90%;
-        grid-template-rows: 2fr 1fr;
-        grid-template-areas: "fs" "b";
-        float: none;
-        margin: 5%;
+        padding-top: 10px;
+        grid-template-rows: 1fr 4fr 1fr;
+        grid-template-columns: 1fr max-content;
+        grid-template-areas:
+            ". btn"
+            ". ."
+            ". .";
     }
+}
 
-    .fields {
-        grid-area: fs;
-        alignment: center;
+@media (min-width: 600px) {
+    .header {
+        grid-area: hat;
+        background-color: #8db574;
+        border-radius: 20px;
+        display: grid;
+        grid-template-rows: 1fr 4fr 1fr;
+        grid-template-columns: 1fr max-content;
+        grid-template-areas:
+            ". ."
+            ". btn"
+            ". .";
     }
+}
 
-    .logInControls button {
-        width: 80%;
-        margin: 10%;
-
-    }
-
-    .emIn {
-        width: 90%;
-        margin: 1vh;
-
-    }
-
-    .pIn {
-        width: 90%;
-        margin: 1vh;
-    }
+.btn {
+    grid-area: btn;
+    max-width: max-content;
+    height: border-box;
+    margin-right: 10px;
 
 }
 
-@media (min-width: 601px) {
-    .logInControls {
-        height: 6vh;
-        margin: 1vh;
-        padding: 1vh;
-        width: fit-content;
-    }
+.header a {
+    width: max-content;
+    height: 100%;
+}
 
-    .fields {
-        display: inline-block;
-        margin: 0 10px;
-    }
+.header button {
+    color: white;
+    height: 80%;
+    margin: 10% 0;
+    padding: 2vh;
+    font-family: "Arial", sans-serif;
+    background-color: #59724a;
+    border-radius: 10px;
+    border-style: none;
+    transition-duration: .2s;
+}
 
-    .logInControls button {
-        height: 4vh;
-    }
+.header button:hover {
+    transform: translateX(-3px);
+    transition-duration: .3s;
+}
 
-    .emIn {
-        width: 50%;
-    }
+.header button:active {
+    opacity: .7;
+    transition-duration: .5s;
+}
 
-    .pIn {
-        width: 50%;
+.header button:focus {
+    outline: none;
+}
 
-    }
-
+.header button:disabled {
+    display: none;
 }

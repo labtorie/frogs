@@ -9,7 +9,7 @@ const Item = (props) => {
         </NavLink>
     )
 }
-const Menu = () => {
+const Menu = (props) => { //TODO REFACTOR
     return (
         <div className={styles.menu}>
             <div className={styles.menuWrapper}>
@@ -21,5 +21,7 @@ const Menu = () => {
         </div>
     )
 }
+
+
 
 export default Menu

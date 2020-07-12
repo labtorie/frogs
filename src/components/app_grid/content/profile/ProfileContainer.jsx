@@ -3,6 +3,8 @@ import React from "react";
 import Profile from "./Profile";
 import {setUser, fetchProfile} from "../../../../redux/profilePageReducer";
 import {withRouter} from "react-router-dom";
+import {withUnauthRedirect} from "../../../../HOC/withAuthRedirect";
+import {compose} from "redux";
 
 class ProfileDAL extends React.Component {
     componentDidMount() {
@@ -10,13 +12,7 @@ class ProfileDAL extends React.Component {
     }
 
     render() {
-        return <Profile
-            profilePictureURL={this.props.profilePictureURL}
-            name={this.props.name}
-            bio={this.props.bio}
-            uid={this.props.uid}
-            isFetching={this.props.isFetching}
-        />
+        return <Profile {...this.props}/>
     }
 }
 
@@ -34,6 +30,8 @@ const mapStateToProps = (state) => {
     }
 }
 
-const ProfileContainer = connect(mapStateToProps, {setUser, fetchProfile})(withRouter(ProfileDAL))
-
-export default ProfileContainer
+export default compose(
+    connect(mapStateToProps, {setUser, fetchProfile}),
+    withRouter,
+    withUnauthRedirect
+)(ProfileDAL)

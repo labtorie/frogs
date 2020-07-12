@@ -70,10 +70,9 @@ export const authReducer = (state = initialState, action) => {
 
 export const updateFields = (isPasswordField, text) => {
     return isPasswordField ? {type: UPDATE_PASSWORD, text} : {type: UPDATE_EMAIL, text}
+}
 
-} //todo u kno fields...
-
-export const setAuthStatus = (auth) => ({
+export const setAuth = (auth) => ({
     type: SET_AUTH_STATUS,
     id: auth.id,
     login: auth.login,
@@ -81,14 +80,27 @@ export const setAuthStatus = (auth) => ({
     isLoggedIn: auth.isLoggedIn
 })
 
+export const fetchAuth = () => (dispatch) => {
+    authAPI.fetchAuth()
+        .then(
+            (response) => {
+                dispatch(setAuth({
+                    id: response.data.id,
+                    login: response.data.login,
+                    email: response.data.email,
+                    isLoggedIn: response.resultCode === 0,
+                }))
+            }
+        )
+}
+
 export const logIn = (email, password) => (dispatch) => {
     authAPI.logIn(email, password).then(
         (response)=>{
             if (response.resultCode===0) {
-                alert('u logged in, refresh pls')
-                //todo u kno
+                dispatch(fetchAuth())
             }
-            else alert(`error: ${response.messages}`)
+            else alert(`error: ${response.messages}`) //todo error UI
         }
     )
 }
@@ -96,8 +108,7 @@ export const logOut = () => (dispatch) => {
     authAPI.logOut().then(
         (response)=>{
             if (response.resultCode===0) {
-                alert('u logged out, refresh')
-                //todo u kno
+                dispatch(fetchAuth())
             }
             else alert('error')
         }
