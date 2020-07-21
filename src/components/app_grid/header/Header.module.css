@@ -5,12 +5,13 @@
         border-radius: 20px;
         display: grid;
         padding-top: 10px;
-        grid-template-rows: 1fr 4fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         grid-template-columns: 1fr max-content;
         grid-template-areas:
             ". btn"
             ". ."
             ". .";
+        height: available;
     }
 }
 

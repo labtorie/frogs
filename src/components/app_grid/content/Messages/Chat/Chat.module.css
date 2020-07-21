@@ -12,10 +12,12 @@
         height: 80vh;
         background-color: #fff;
         border-radius: 10px;
+        width: available;
     }
 }
 @media(min-width: 640px){
     .chatWrapper {
+        width: available;
         grid-area: cw;
         display: grid;
         grid-template-rows: 8vh 1fr 12vh;
@@ -33,8 +35,6 @@
 .Header {
     border-radius: 10px 10px 0 0;
     background-color: #fff;
-    border-color: #e70000;
-    border-width: 2px;
     grid-area: h;
 
     padding: 1vh;
@@ -46,6 +46,7 @@
 }
 
 .Input {
+    width: available;
     border-radius: 10px;
     grid-area: mi;
     display: grid;
@@ -59,7 +60,7 @@
     grid-area: if;
     height: 10vh;
     resize: none;
-    width: 100%;
+    width: available;
     border-radius: 5px 0 0 5px;
     border: none;
     font-family: "Arial", sans-serif;
@@ -112,10 +113,13 @@
     height: 6vh;
     width: 6vh;
     border-radius: 3vh;
+    transition-duration: .2s;
     object-fit: cover; /* Do not scale the image */
     object-position: center; /* Center the image within the element */
 }
-
+.pPicture img:hover {
+    transform: scale(1.2);
+}
 .Name {
     font-family: "Arial", sans-serif;
     text-decoration: none;
@@ -129,7 +133,7 @@
 }
 
 .messageSpace {
-    width: 100%;
+    width: available;
     height: fit-content;
     overflow: auto;
     margin: 1vh 0;

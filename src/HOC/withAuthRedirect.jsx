@@ -11,7 +11,7 @@ export const withUnauthRedirect = (Component) => {
     })
     return connect(mapStateToProps, {})(class RedirectComponent extends React.Component {
         render() {
-            if (!this.props.isAuth) return <Redirect to='/login'/>
+            if (!this.props.isAuth) return <Redirect to='/login' /> //todo remember previous path
             return <Component {...this.props}/>
         }
     })
@@ -23,7 +23,7 @@ export const withAuthRedirect = (Component) => {
     })
     return connect(mapStateToProps, {})(class RedirectComponent extends React.Component {
         render() {
-            if (this.props.isAuth) return <Redirect to='/profile'/>
+            if (this.props.isAuth) return <Redirect to='/profile'/> //todo restore prev
             return <Component {...this.props}/>
         }
     })

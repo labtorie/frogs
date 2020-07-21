@@ -17,7 +17,7 @@ export const usersAPI = {
 }
 export const profileAPI = {
     fetchProfile(id = null, myId = 2) {
-        return instance.get(`profile/${id !==null ? id : myId}`).then(r => r.data)
+        return instance.get(`profile/${id !== null ? id : myId}`).then(r => r.data)
     },
     uploadProfilePicture(file) {
         return instance.put('profile/photo', file, {headers: {'Content-Type': 'multipart/form-data'}})
@@ -28,15 +28,33 @@ export const authAPI = {
         return instance
             .get(`auth/me`).then(r => r.data)
     },
-    logIn(email, password) {
+    logIn(email, password, rememberMe) {
         return instance
-            .post(`auth/login`, {email, password})
-            .then(r=>r.data)
+            .post(`auth/login`, {email, password, rememberMe})
+            .then(r => r.data)
     },
     logOut() {
         return instance
             .delete(`auth/login`)
+            .then(r => r.data)
+    }
+}
+
+export const messagesAPI = {
+    fetchDialogs() {
+        return instance
+            .get(`/dialogs`)
+            .then(r => r.data)
+    },
+    fetchMessages(chatID) {
+        return instance
+            .get(`/dialogs/${chatID}/messages`)
+            .then(r => r.data)
+    },
+    sendMessage(chatID, text) {
+        return instance
+            .post(`/dialogs/${chatID}/messages`,{body: text})
             .then(r=>r.data)
     }
 }
-window.api=authAPI;
+window.api = messagesAPI;

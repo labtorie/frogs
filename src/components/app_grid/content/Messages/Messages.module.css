@@ -19,6 +19,6 @@
         grid-template-columns: 1fr 2fr;
         grid-template-areas:
         "dw cw";
-        min-width: 640px;
+        min-width: available;
     }
 }

@@ -4,24 +4,19 @@ import ChatHeader from "./ChatHeader";
 import MessageBubble from "./MessageBubble";
 
 
-
 const Chat = (props) => {
 
-    let messagesItems = props.currentChat.messages.map(
-        msg => <MessageBubble messageText={msg.messageText} id={msg.id} mine={msg.mine}/>
+    let messagesItems = props.messages.map(
+        msg => <MessageBubble key={msg.id} messageText={msg.body} id={msg.id} mine={msg.isMine}/>
     )
-
-    let onSendMessage = () => props.sendMessage();
-
-    let onTextInputChange = (event) => props.changeInput(event.target.value);
-
     return (
-        <div className={styles.chatWrapper}>
+        <div className={styles.chatWrapper} id='scrollable'>
             <div className={styles.Header}><ChatHeader currentChat={props.currentChat}/></div>
             <div className={styles.Body}>{messagesItems}</div>
             <div className={styles.Input}>
-                <textarea placeholder='Новое сообщение' onChange={ onTextInputChange } value={props.currentChat.currentInput}/>
-                <button onClick={onSendMessage}>✔</button>
+                <textarea placeholder='Новое сообщение' onChange={props.onTextInputChange}
+                          value={props.currentChat.input}/>
+                <button onClick={props.onSendMessage}>✔</button>
             </div>
         </div>
     )

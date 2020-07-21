@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Profile.module.css'
 import defaultPicture from "../../../../assets/images/user.png"
+import {NavLink} from "react-router-dom";
 
 
 const Profile = (props) => {
@@ -13,7 +14,7 @@ const Profile = (props) => {
                 <div className={styles.Bio}>{props.bio}</div>
             </div>
             <div className={styles.menu}>
-                <div className={styles.Button}>Написать</div>
+                <NavLink to={`/messages/${props.uid}`}><div className={styles.Button}>Написать</div></NavLink>
                 <div className={styles.Button}>Квакнуть</div>
             </div>
         </div>

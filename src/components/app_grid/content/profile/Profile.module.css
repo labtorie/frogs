@@ -58,6 +58,9 @@
 .menu {
     grid-area: mn;
 }
+.menu a {
+    text-decoration: none;
+}
 
 @media (min-width: 0) {
     .profilePic img {

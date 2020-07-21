@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Dialogs.module.css'
-import {NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom"
+import user from "../../../../../assets/images/user.png"
 
-// chats[],
 const DialogItem = (props) => {
     return (
         <NavLink className={styles.Link} to={`/messages/${props.id}`} activeClassName={styles.activeChat}>
@@ -19,8 +19,8 @@ const DialogItem = (props) => {
 }
 
 const Dialogs = (props) => {
-    let dialogElements = props.chats.map(
-        chat => <DialogItem name={chat.name} img={chat.profilePictureURL} id={chat.id}/>
+    let dialogElements = props.dialogs.map(
+        chat => <DialogItem name={chat.userName} img={(chat.photo !== null && chat.photo !== '' ? chat.photo : user)} id={chat.id} />
     )
     return (<div className={styles.dialogsWrapper}>
             {dialogElements}

@@ -1,17 +1,32 @@
 import {connect} from "react-redux";
+import React from 'react'
 import Dialogs from "./Dialogs";
+import {fetchDialogsThunk} from "../../../../../redux/messagesPageReducer";
+import {compose} from "redux";
 
-const mapStateToProps = (state) => {
-    return {
-        chats: state.messagesPage.chats,
+class DialogsContainer extends React.Component {
+
+    componentDidMount() {
+        this.props.fetchDialogsThunk()
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.dialogs.lastItem !== this.props.dialogs.lastItem)
+            this.props.fetchDialogsThunk()
+    }
+
+    render() {
+        return <Dialogs {...this.props} />
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
+const mapStateToProps = (state) => {
+    return {
+        dialogs: state.messagesPage.dialogs,
+    }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
-
-export default DialogsContainer
+export default compose(
+    connect(mapStateToProps, {fetchDialogsThunk}),
+)
+(DialogsContainer)
 
