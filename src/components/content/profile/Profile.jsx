@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Profile.module.css'
-import defaultPicture from "../../../../assets/images/user.png"
+import defaultPicture from "../../../assets/images/user.png"
 import {NavLink} from "react-router-dom";
 
 

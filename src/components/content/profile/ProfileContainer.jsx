@@ -1,9 +1,9 @@
 import {connect} from "react-redux";
 import React from "react";
 import Profile from "./Profile";
-import {setUser, fetchProfile} from "../../../../redux/profilePageReducer";
+import {setUser, fetchProfile} from "../../../redux/profilePageReducer";
 import {withRouter} from "react-router-dom";
-import {withUnauthRedirect} from "../../../../HOC/withAuthRedirect";
+import {withUnauthRedirect} from "../../../HOC/withAuthRedirect";
 import {compose} from "redux";
 
 class ProfileDAL extends React.Component {

@@ -1,7 +1,5 @@
 import {messagesAPI, profileAPI} from "../API/API";
 
-const SEND_MESSAGE = 'SEND-MESSAGE'
-const UPDATE_MESSAGE_INPUT = 'UPDATE-NEW-MESSAGE-INPUT'
 const SET_DIALOGS = 'SET-DIALOGS'
 const SET_MESSAGES = 'SET-MESSAGES'
 const SET_HEADER = 'SET-HEADER'
@@ -15,7 +13,6 @@ const initialState = {
         id: null,
         name: '',
         photo: '',
-        input: ''
     },
     isPending: true,
     messages: []
@@ -40,19 +37,10 @@ export const messagesPageReducer = (state = initialState, action) => {
                 )
             }
         }
-        case UPDATE_MESSAGE_INPUT: {
-            return {
-                ...state,
-                currentChat: {
-                    ...state.currentChat,
-                    input: action.text,
-                }
-            }
-        }
         case SET_MESSAGES: {
             return {
                 ...state,
-                currentChat: {...state.currentChat, id: action.chatID, input: ""},
+                currentChat: {...state.currentChat, id: action.chatID},
                 messages: action.messages.map(
                     (message) => {
                         return {
@@ -78,7 +66,7 @@ export const messagesPageReducer = (state = initialState, action) => {
         {
             return {
                 ...state,
-                currentChat: {...state.currentChat, input: ''},
+                currentChat: {...state.currentChat},
                 messages: [
                     ...state.messages,
                     {
@@ -150,8 +138,3 @@ export const sendMessage = (chatID, text) => (dispatch) => {
 
 const pendingOn = () => ({type: PENDING_ON})
 const pendingOff = () => ({type: PENDING_OFF})
-
-
-export const updateNewMessageText = (text) => (
-    {type: UPDATE_MESSAGE_INPUT, text: text}
-)

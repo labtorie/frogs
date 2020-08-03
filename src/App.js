@@ -1,13 +1,29 @@
 import React from 'react';
-import AppGrid from "./components/app_grid/AppGrid";
+import AppGrid from "./components/AppGrid";
 import {BrowserRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {initializeApp} from "./redux/appReducer";
 
-const App = () => {
-    return (
-        <BrowserRouter basename={'/frogs'}>
-                <AppGrid />
-        </BrowserRouter>
-    )
+class App extends React.Component {
+
+    componentDidMount() {
+        this.props.initializeApp()
+    }
+
+    render() {
+        return !this.props.initialized
+            ?
+            <h1>loading</h1>
+            :
+            (
+                <BrowserRouter basename={'/frogs'}>
+                    <AppGrid/>
+                </BrowserRouter>
+            )
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized,
+})
+export default connect(mapStateToProps, {initializeApp})(App);

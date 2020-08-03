@@ -4,7 +4,7 @@ import React from "react";
 import {
     fetchUsers,
     updateSearchText
-} from "../../../../redux/usersPageReducer";
+} from "../../../redux/usersPageReducer";
 
 
 

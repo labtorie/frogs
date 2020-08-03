@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import React from "react";
 import Header from "./Header";
-import {logOut} from "../../../redux/authReducer";
+import {logOut} from "../../redux/authReducer";
 import {compose} from "redux";
 
 class HeaderDAL extends React.Component {

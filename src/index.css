@@ -1,8 +1,57 @@
-body{
+.bodya{
     background-color: #353b35;
     background-attachment: fixed;
     background-image: url("bkg.png");
 }
+
+
+body {
+    background: linear-gradient(270deg, #03899f, #039f62);
+    background-size: 400% 400%;
+    -webkit-animation: gradientTranslate 30s ease infinite;
+    -moz-animation: gradientTranslate 30s ease infinite;
+    animation: gradientTranslate 30s ease infinite;
+}
+
+@-webkit-keyframes gradientTranslate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gradientTranslate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gradientTranslate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
 html {
     scroll-behavior: smooth;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(0 0 0 0);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 6px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

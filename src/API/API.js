@@ -53,8 +53,15 @@ export const messagesAPI = {
     },
     sendMessage(chatID, text) {
         return instance
-            .post(`/dialogs/${chatID}/messages`,{body: text})
-            .then(r=>r.data)
+            .post(`/dialogs/${chatID}/messages`, {body: text})
+            .then(r => r.data)
     }
 }
 window.api = messagesAPI;
+
+
+const requestFisting = (cash) => {
+    return cash >= 300 ? '♂ fisting ♂' : '♂ fuck you ♂'
+}
+
+console.log(requestFisting(200))

@@ -1,4 +1,5 @@
 import {authAPI} from "../API/API";
+import {SET_INITIALIZED} from "./appReducer";
 
 const SET_AUTH_STATUS = 'GET-AUTH-STATUS'
 
@@ -20,10 +21,6 @@ export const authReducer = (state = initialState, action) => {
                     login: action.login,
                     email: action.email,
                     isLoggedIn: action.isLoggedIn,
-                    fields: {
-                        email: "",
-                        password: ""
-                    }
                 }
 
             } else return {
@@ -31,10 +28,6 @@ export const authReducer = (state = initialState, action) => {
                 login: null,
                 email: null,
                 isLoggedIn: false,
-                fields: {
-                    email: "",
-                    password: ""
-                }
             }
 
         }
@@ -53,18 +46,19 @@ export const setAuth = (auth) => ({
     isLoggedIn: auth.isLoggedIn
 })
 
-export const fetchAuth = () => (dispatch) => {
-    authAPI.fetchAuth()
-        .then(
-            (response) => {
-                dispatch(setAuth({
-                    id: response.data.id,
-                    login: response.data.login,
-                    email: response.data.email,
-                    isLoggedIn: response.resultCode === 0,
-                }))
-            }
-        )
+export const fetchAuth = () => async (dispatch) => {
+
+    const setData =  (response) => {
+         dispatch(setAuth({
+            id: response.data.id,
+            login: response.data.login,
+            email: response.data.email,
+            isLoggedIn: response.resultCode === 0,
+        }
+        ))
+    }
+
+    return setData(await authAPI.fetchAuth())
 }
 
 export const logIn = (email, password, rememberMe) => (dispatch) => {
@@ -80,7 +74,7 @@ export const logOut = () => (dispatch) => {
     authAPI.logOut().then(
         (response) => {
             if (response.resultCode === 0) {
-                dispatch(fetchAuth())
+                dispatch(setAuth(initialState))
             } else alert('error')
         }
     )

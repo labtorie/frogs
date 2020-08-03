@@ -29,6 +29,7 @@
         height: 80vh;
         background-color: #fff;
         border-radius: 10px;
+
     }
 }
 
@@ -43,6 +44,9 @@
 .Body {
     grid-area: b;
     overflow-y: scroll;
+
+
+
 }
 
 .Input {

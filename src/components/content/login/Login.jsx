@@ -1,12 +1,12 @@
 import React from 'react'
 import {compose} from "redux";
 import {connect} from "react-redux";
-import {fetchAuth, logIn} from "../../../../redux/authReducer";
+import {fetchAuth, logIn} from "../../../redux/authReducer";
 import styles from './Login.module.css'
-import {withAuthRedirect} from "../../../../HOC/withAuthRedirect";
+import {withAuthRedirect} from "../../../HOC/withAuthRedirect";
 import {Field, reduxForm} from "redux-form";
-import {required} from "../../../../utils/formValidators";
-import {Input} from "../../../common/inputs";
+import {required} from "../../../utils/formValidators";
+import {Input} from "../../common/inputs";
 
 const Login = (props) => {
     return <div className={styles.body}>

@@ -4,8 +4,7 @@ import {
     fetchChatHeaderData,
     fetchMessagesThunk,
     sendMessage,
-    updateNewMessageText
-} from "../../../../../redux/messagesPageReducer";
+} from "../../../../redux/messagesPageReducer";
 import React from "react";
 import {withRouter} from "react-router-dom";
 
@@ -23,14 +22,13 @@ class ChatContainer extends React.Component {
         }
     }
 
-    onSendMessage = () => {
-        this.props.sendMessage(this.props.match.params.chat, this.props.currentChat.input)
+    onSendMessage = (formData) => {
+        this.props.sendMessage(this.props.match.params.chat, formData.newMessageBody)
     }
 
-    onTextInputChange = (event) => this.props.updateNewMessageText(event.target.value)
 
     render() {
-        return <Chat {...this.props} onTextInputChange={this.onTextInputChange} onSendMessage={this.onSendMessage}/>
+        return <Chat {...this.props} onSubmit={this.onSendMessage}/>
     }
 
 }
@@ -46,7 +44,6 @@ const mapStateToProps = (state) => {
 export default withRouter(connect(mapStateToProps, {
     fetchMessagesThunk,
     fetchChatHeaderData,
-    updateNewMessageText,
     sendMessage
 })(ChatContainer))
 

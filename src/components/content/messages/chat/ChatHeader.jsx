@@ -1,7 +1,7 @@
 import styles from "./Chat.module.css";
 import React from "react";
 import {NavLink} from "react-router-dom";
-import user from "../../../../../assets/images/user.png"
+import user from "../../../../assets/images/user.png"
 
 const ChatHeader = (props) => {
     return (<div className={styles.wrapper}>

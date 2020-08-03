@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './Messages.module.css'
 import {Route} from "react-router-dom"
-import DialogsContainer from "./Dialogs/DialogsContainer";
-import ChatContainer from "./Chat/ChatContainer";
-import {withUnauthRedirect} from "../../../../HOC/withAuthRedirect";
+import DialogsContainer from "./dialogs/DialogsContainer";
+import ChatContainer from "./chat/ChatContainer";
+import {withUnauthRedirect} from "../../../HOC/withAuthRedirect";
 
 
 const Messages = (props) => { //TODO REAL DATA

@@ -1,7 +1,7 @@
 import {connect} from "react-redux";
 import React from 'react'
 import Dialogs from "./Dialogs";
-import {fetchDialogsThunk} from "../../../../../redux/messagesPageReducer";
+import {fetchDialogsThunk} from "../../../../redux/messagesPageReducer";
 import {compose} from "redux";
 
 class DialogsContainer extends React.Component {
